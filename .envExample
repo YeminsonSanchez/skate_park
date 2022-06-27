@@ -1,0 +1,7 @@
+BD_USER:"" // Database user
+BD_PASSWORD: "" // Database password
+BD_NAME:"stakepark"
+BD_HOST:"localhost"
+BD_PORT: "5432" 
+SERVER_PORT: "3000"
+SECRET_KEY: "" // Secret key for JWT

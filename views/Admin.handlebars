@@ -1,0 +1,33 @@
+<div class="py-4">
+      <h2>Administración</h2>
+      <hr class="w-50" />
+
+      <table class="table w-50 m-auto">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Foto</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Años de experiencia</th>
+            <th scope="col">Especialidad</th>
+            <th scope="col">Estado</th>
+          </tr>
+        </thead>
+        <tbody id="cuerpo"> 
+          {{#each users}}
+          <tr>
+          <td>{{ this.id }}</td>
+          <td><img height="80px" width="80px" src="./uploads/{{this.foto}}"></td>
+          <td>{{ this.nombre }}</td>
+          <td>{{ this.anios_experiencia }}</td>
+          <td>{{ this.especialidad }}</td>
+          <td>
+          <input type="checkbox" {{#if this.estado}} checked {{/if}} onclick="userStatusChange({{this.id}}, this)">
+          </td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+</div>
+
+<script src="./js/admin.js"></script>
