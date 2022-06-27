@@ -47,19 +47,28 @@ updateBtn.addEventListener("click", async (e) => {
   };
 
   try {
-    if (password !== repassword) {
+    if (password == "" || repassword == "") {
       Swal.fire({
         title: "Error!",
-        text: "Las contraseñas no coinciden",
+        text: "No puedes dejar campos vacios",
         icon: "error",
         confirmButtonText: "Ok",
       });
     } else {
-      const { data: token } = await axios.put("api/v1/user/update", skater);
-      Swal.fire("Actualizado!", "Se ha actualizado correctamente", "success");
-      setTimeout(() => {
-        window.location = "/";
-      }, 2500);
+      if (password !== repassword) {
+        Swal.fire({
+          title: "Error!",
+          text: "Las contraseñas no coinciden",
+          icon: "error",
+          confirmButtonText: "Ok",
+        });
+      } else {
+        const { data: token } = await axios.put("api/v1/user/update", skater);
+        Swal.fire("Actualizado!", "Se ha actualizado correctamente", "success");
+        setTimeout(() => {
+          window.location = "/";
+        }, 2500);
+      }
     }
   } catch (error) {
     Swal.fire({

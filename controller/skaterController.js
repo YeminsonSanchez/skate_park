@@ -24,7 +24,7 @@ exports.createUser = async (req, res, next) => {
       res
         .status(401)
         .send(
-          `<script>alert("contraseñas no son las mismas"); window.location.href="/registro"; </script>`
+          "Las contraseñas no coinciden, por favor verifique e intente nuevamente"
         );
     } else {
       const hashedPassword = await bcrypt.hash(password, 10);
